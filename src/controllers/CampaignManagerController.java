@@ -241,7 +241,14 @@ public class CampaignManagerController {
 
 		}
 				
+		if (selectedCampaign.getCampaignStaffs() == null) {
+			selectedCampaign.setCampaignStaffs(new ArrayList<>());
+		}
+		
 		for (Staff campaignStaff : selectedCampaignStaffs) {
+			
+			
+			
 			selectedCampaign.getCampaignStaffs().add(campaignStaff);
 			System.out.println(campaignStaff.getName() + "has been assigned");
 		}
