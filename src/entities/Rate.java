@@ -1,17 +1,18 @@
 package entities;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Rate {
 	
 	private int id;
-	private float rate;
-	private Date startDate;
-	private Date finishDate;
+	private double rate;
+	private LocalDate startDate;
+	private LocalDate finishDate;
 	public Rate() {
 		super();
 	}
-	public Rate(int id, float rate, Date startDate, Date finishDate) {
+	public Rate(int id, double rate, LocalDate startDate, LocalDate finishDate) {
 		super();
 		this.id = id;
 		this.rate = rate;
@@ -24,22 +25,22 @@ public class Rate {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public float getRate() {
+	public double getRate() {
 		return rate;
 	}
-	public void setRate(float rate) {
+	public void setRate(double rate) {
 		this.rate = rate;
 	}
-	public Date getStartDate() {
+	public LocalDate getStartDate() {
 		return startDate;
 	}
-	public void setStartDate(Date startDate) {
+	public void setStartDate(LocalDate startDate) {
 		this.startDate = startDate;
 	}
-	public Date getFinishDate() {
+	public LocalDate getFinishDate() {
 		return finishDate;
 	}
-	public void setFinishDate(Date finishDate) {
+	public void setFinishDate(LocalDate finishDate) {
 		this.finishDate = finishDate;
 	}
 	
