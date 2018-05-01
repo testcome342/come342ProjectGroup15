@@ -4,7 +4,7 @@ public class Grade {
 
 	@Override
 	public String toString() {
-		return "Grade [id=" + id + ", gradeName=" + gradeName + ", rate=" + rate + "]";
+		return "Grade [id=" + id + ", gradeName=" + gradeName + ", rate=" + rate.getRate() + "]";
 	}
 
 
@@ -16,7 +16,6 @@ public class Grade {
 	public Grade() {
 		super();
 	}
-
 
 	public Grade(int id, String gradeName, Rate rate) {
 		super();

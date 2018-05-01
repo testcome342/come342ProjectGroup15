@@ -2,13 +2,23 @@ package controllers;
 
 import java.util.Scanner;
 
+import entities.Grade;
+import entities.Staff;
+import repositories.GradeRepository;
+import repositories.StaffRepository;
+
 
 public class AccountantController {
 
-	Scanner scanner;
+	private Scanner scanner;
+	private GradeRepository gradeRepository;
+	private StaffRepository staffRepository;
+	
 	
 	public AccountantController() {
 		scanner = new Scanner(System.in);
+		gradeRepository =  new GradeRepository();
+		staffRepository = new StaffRepository();
 	}
 	
 	
@@ -65,7 +75,7 @@ public class AccountantController {
 			break;
 			
 		case 3:
-			
+			showAllTheGrades();
 			System.out.println("press a key to redirect to home");
 			scanner.next();
 			showOptions();
@@ -73,7 +83,7 @@ public class AccountantController {
 			break;
 			
 		case 4:
-			
+			showAllTheStaffs();
 			System.out.println("press a key to redirect to home");
 			scanner.next();
 			showOptions();
@@ -90,6 +100,62 @@ public class AccountantController {
 			break;
 		}
 	}
+	
+	public void showAllTheGrades() {
+		System.out.println("Grades in the company:");
+		
+		for (Grade grade	 :  gradeRepository.getAll()) {
+			System.out.println(grade.toString());
+		}
+		
+	}
+	
+	
+	public void showAllTheStaffs() {
+			
+		System.out.println("------------------------------------------------");
+
+		System.out.println("ACCOUNTANTS");
+		for (Staff staff : staffRepository.getAllAccountants()) {
+			System.out.println(staff.getName());
+			
+		}
+		
+		System.out.println("------------");
+		
+		System.out.println("CAMPAIGN MANAGERS");
+		for (Staff staff : staffRepository.getAllCampaignManagers()) {
+			System.out.println(staff.getName());
+		}
+		
+		System.out.println("------------");
+		System.out.println("CAMPAIGN STAFFS");
+		for (Staff staff : staffRepository.getAllCampaignStaffs()) {
+			System.out.println(staff.getName() + " (" + staff.getGrade().getGradeName() + ")");
+		}
+		
+		System.out.println("------------");
+		System.out.println("CONTACT STAFFS FOR CLIENTS");
+		for (Staff staff : staffRepository.getAllStaffContacts()) {
+			System.out.println(staff.getName());
+		}
+		System.out.println("------------------------------------------------");
+
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

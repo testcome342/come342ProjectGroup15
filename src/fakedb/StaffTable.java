@@ -10,13 +10,16 @@ import entities.CampaignStaff;
 import entities.Grade;
 import entities.Staff;
 import entities.StaffContact;
+import repositories.GradeRepository;
 
 public class StaffTable implements ITable<Staff> {
 
 	private List<Staff> staffs;
+	private GradeRepository gradeRepository;
 
 	public StaffTable() {
 		staffs = new ArrayList<Staff>();
+		gradeRepository = new GradeRepository();
 				
 		//Creating some staff objects. I am going to use them as if they are coming from a database.
 				
@@ -30,12 +33,12 @@ public class StaffTable implements ITable<Staff> {
 		Staff staffContact2 = new StaffContact(5, "samantha", "asd", LocalDate.of(2013, 4, 4) , "samantha@mail", new Grade());
 		Staff staffContact3 = new StaffContact(6, "dexter", "asd", LocalDate.of(2016, 4, 14) , "dexter@mail", new Grade());
 				
-		Staff campaignStaff1 = new CampaignStaff(7, "debra", "asd", LocalDate.of(2011, 2, 4), "debra@mail.com", new Grade());
-		Staff campaignStaff2 = new CampaignStaff(8, "walter", "asd", LocalDate.of(2011, 2, 4), "walter@mail.com", new Grade());
-		Staff campaignStaff3 = new CampaignStaff(9, "jessie", "asd", LocalDate.of(2011, 2, 4), "jessie@mail.com", new Grade());
-		Staff campaignStaff4 = new CampaignStaff(10, "elliot	", "asd", LocalDate.of(2011, 2, 4), "elliot@mail.com", new Grade());
-		Staff campaignStaff5 = new CampaignStaff(11, "albert	", "asd", LocalDate.of(2011, 2, 4), "albert@mail.com", new Grade());
-		Staff campaignStaff6 = new CampaignStaff(12, "dolores	", "asd", LocalDate.of(2011, 2, 4), "dolores@mail.com", new Grade());
+		Staff campaignStaff1 = new CampaignStaff(7, "debra", "asd", LocalDate.of(2011, 2, 4), "debra@mail.com",  gradeRepository.getById(1) );
+		Staff campaignStaff2 = new CampaignStaff(8, "walter", "asd", LocalDate.of(2011, 2, 4), "walter@mail.com",  gradeRepository.getById(1));
+		Staff campaignStaff3 = new CampaignStaff(9, "jessie", "asd", LocalDate.of(2011, 2, 4), "jessie@mail.com", gradeRepository.getById(2));
+		Staff campaignStaff4 = new CampaignStaff(10, "elliot	", "asd", LocalDate.of(2011, 2, 4), "elliot@mail.com",  gradeRepository.getById(2));
+		Staff campaignStaff5 = new CampaignStaff(11, "albert	", "asd", LocalDate.of(2011, 2, 4), "albert@mail.com",  gradeRepository.getById(2));
+		Staff campaignStaff6 = new CampaignStaff(12, "dolores	", "asd", LocalDate.of(2011, 2, 4), "dolores@mail.com", gradeRepository.getById(3));
 	
 	
 		this.staffs.add(accountant1);

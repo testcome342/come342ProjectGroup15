@@ -287,7 +287,7 @@ public class CampaignManagerController {
 			System.out.println(client.toString());
 		}
 		
-		System.out.println("show all clients");
+		
 	}
 	
 	public Client getSelectedClient(int id) {	
