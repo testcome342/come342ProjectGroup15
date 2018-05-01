@@ -38,7 +38,7 @@ public class CampaignManagerController {
 	}
 		
 	public void welcome(String name) {
-		System.out.println("***CAMPAIGN MANAGER PANEL***");
+		System.out.println("***CAMPAIGN MANAGER PAGE***");
 		System.out.println("Welcome " + name);
 		showOptions();
 		selectAnOption();

@@ -21,7 +21,7 @@ public class Accountant extends Staff {
 	public void doJob() {
 		//feels terribly wrong to do
 		AccountantController accountantController = new AccountantController();
-		accountantController.welcome();
+		accountantController.welcome(this.getName());
 		
 	}
 
