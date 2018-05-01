@@ -3,6 +3,7 @@ package controllers;
 import java.util.Scanner;
 
 import entities.Grade;
+import entities.Rate;
 import entities.Staff;
 import repositories.GradeRepository;
 import repositories.StaffRepository;
@@ -59,7 +60,7 @@ public class AccountantController {
 	public void goToOption(int option) {
 		switch (option) {
 		case 1:
-			
+			addANewStaffGrade();
 			System.out.println("press a key to redirect to home");
 			scanner.next();
 			showOptions();
@@ -145,7 +146,34 @@ public class AccountantController {
 	}
 	
 	
+	public void addANewStaffGrade() {
+		
+		System.out.println("*** Add new staff grade page ***");
+		System.out.println("------------------------------------------------");
+
+		
+		Grade newGrade = new Grade();
+		System.out.println("Please enter grade's: ");
+		
+		System.out.println("id:");
+		newGrade.setId(scanner.nextInt());
+		
+		System.out.println("name:");
+		newGrade.setGradeName(scanner.next());
+		
+		
+		Rate rate = new Rate(6, 0.0, null, null);
+		newGrade.setRate(rate);
+		
+		
+		gradeRepository.Add(newGrade);
+		
+		System.out.println("The new grade has been saved successfully");
 	
+		System.out.println("------------------------------------------------");
+
+		
+	}
 	
 	
 	
