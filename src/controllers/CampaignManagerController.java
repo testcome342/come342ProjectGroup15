@@ -184,7 +184,7 @@ public class CampaignManagerController {
 		if (selectedCampaign.getCampaignStaffs() != null) {
 			System.out.println("staffs that are already working on this campaign: ");
 			for (Staff staff : selectedCampaign.getCampaignStaffs()) {
-				System.out.println(staff.getName());
+				System.out.println(staff.getName() + " (" + staff.getGrade().getGradeName() + ")");
 				notAvailableStaffs.add(staff.getId());
 			}
 		}
@@ -207,7 +207,7 @@ public class CampaignManagerController {
 			do {
 				System.out.println("select a campaign staff to assign to this campaign");
 				for (Staff staff : availableStaffs) {
-					System.out.println("(" + staff.getId() + ")" + staff.getName());
+					System.out.println("(" + staff.getId() + ")" + staff.getName() + "(" + staff.getGrade().getGradeName() + ")");
 					
 				}
 				
