@@ -68,7 +68,7 @@ public class AccountantController {
 			break;
 			
 		case 2:
-			
+			changeGradeOfAStaff();
 			System.out.println("press a key to redirect to home");
 			scanner.next();
 			showOptions(); 
@@ -171,9 +171,54 @@ public class AccountantController {
 		System.out.println("The new grade has been saved successfully");
 	
 		System.out.println("------------------------------------------------");
-
 		
 	}
+	
+	public void changeGradeOfAStaff() {
+		System.out.println("*** Change grade of a staff page ***");
+		System.out.println("------------------------------------------------");
+		
+		System.out.println("choose a staff to change their grade");
+		for (Staff staff : staffRepository.getAllCampaignStaffs()) {
+			System.out.println( " (" + staff.getId() + ") " + staff.getName() + " (" + staff.getGrade().getGradeName() + ")" );
+		}
+		
+		Staff selectedStaff =  getSelectedStaff(scanner.nextInt());
+		
+		System.out.println(selectedStaff.getName() + " is selected. This staff is a " + selectedStaff.getGrade().getGradeName() + " right now");
+		
+		System.out.println("choose a new grade to assign to " + selectedStaff.getName());
+		for (Grade grade : gradeRepository.getAvailableGrades(selectedStaff.getGrade().getId())) {
+			System.out.println("(" + grade.getId() + ") " + grade.getGradeName());
+		}
+				
+		Grade selectedGrade = getSelectedGrade(scanner.nextInt());
+		
+		System.out.println(selectedGrade.getGradeName() + " is selected");
+	
+		selectedStaff.setGrade(selectedGrade);
+		
+		System.out.println(selectedStaff.getName() + " is now a " + selectedStaff.getGrade().getGradeName() );
+		
+		
+		System.out.println("------------------------------------------------");
+
+	}
+	
+	
+	
+	public Staff getSelectedStaff(int id) {		
+		return staffRepository.getById(id) ;
+	}
+	
+	public Grade getSelectedGrade(int id) {
+		return gradeRepository.getById(id);
+	}
+	
+	
+	
+	
+	
 	
 	
 	

@@ -1,5 +1,6 @@
 package repositories;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import entities.Grade;
@@ -32,6 +33,23 @@ public class GradeRepository implements IRepository<Grade> {
 	@Override
 	public void Add(Grade grade) {
 		this.gradesTable.save(grade);		
+	}
+	
+	public List<Grade> getAvailableGrades(int id) {
+		
+		List<Grade> availableGrades = getAll();
+		Grade currentGrade = new Grade();
+		
+		for (Grade grade : availableGrades) {
+			if(grade.getId() == id ) {
+				currentGrade = grade;
+			}
+		}
+		
+		availableGrades.remove(currentGrade);
+		
+		return availableGrades;
+		
 	}
 	
 }
