@@ -5,13 +5,21 @@ import java.time.LocalDate;
 
 public abstract class Staff {
 
+//	@Override
+//	public String toString() {
+//		return "Staff [id=" + id + ", name=" + name + ", password=" + password + ", startDate=" + startDate
+//				+ ", emailAddress=" + emailAddress + ", grade=" + grade + "]";
+//	}
+	
+	
+
+	private int id;
 	@Override
 	public String toString() {
 		return "Staff [id=" + id + ", name=" + name + ", password=" + password + ", startDate=" + startDate
-				+ ", emailAddress=" + emailAddress + ", grade=" + grade + "]";
+				+ ", emailAddress=" + emailAddress + "]";
 	}
 
-	private int id;
 	private String name;
 	private String password;
 	private LocalDate startDate;
