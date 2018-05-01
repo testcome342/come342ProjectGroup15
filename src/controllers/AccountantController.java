@@ -60,7 +60,7 @@ public class AccountantController {
 			
 			System.out.println("press a key to redirect to home");
 			scanner.next();
-			showOptions();
+			showOptions(); 
 			selectAnOption();
 			break;
 			
